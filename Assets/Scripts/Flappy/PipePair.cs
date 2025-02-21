@@ -1,11 +1,21 @@
 using UnityEngine;
 
-public class PipePair : MonoBehaviour
+public class PipePair : MonoBehaviour, IStop, IRestart
 {
 
     private Rigidbody2D rb;
 
     [SerializeField] private float speed;
+
+    public void Restart()
+    {
+        Destroy(gameObject);
+    }
+
+    public void Stop()
+    {
+        rb.simulated = false;
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
